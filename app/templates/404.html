@@ -1,0 +1,3 @@
+{% extends 'base.html' %}
+{% block title %}Страница не найдена | {{ config.STUDIO_NAME }}{% endblock %}
+{% block content %}<section class="container error-page"><p class="eyebrow">404</p><h1>Страница не найдена</h1><p>Эта страница или файл сейчас недоступны.</p><a class="button" href="{{ url_for('main.index') }}">{{ icon('back') }} На главную</a></section>{% endblock %}

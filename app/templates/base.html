@@ -1,0 +1,32 @@
+{% from 'macros.html' import icon %}
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0D1520">
+  <title>{% block title %}{{ config.STUDIO_NAME }} — разработка полезного софта{% endblock %}</title>
+  <meta name="description" content="{% block description %}Веб-сервисы, приложения и инструменты Galchanskiy Studio. Используем ИИ на полную катушку.{% endblock %}">
+  <meta property="og:title" content="{{ self.title() }}">
+  <meta property="og:description" content="{{ self.description() }}">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="{{ config.STUDIO_NAME }}">
+  <link rel="icon" href="{{ url_for('static', filename='icons/favicon.svg') }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v=css_version) }}">
+</head>
+<body>
+<a class="skip-link" href="#main">К содержимому</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{ url_for('main.index') }}" aria-label="{{ config.STUDIO_NAME }} — главная"><span class="brand-mark">G/</span><span class="brand-divider"></span><span class="brand-name">{{ config.STUDIO_NAME }}</span></a>
+    <nav aria-label="Основная навигация">
+      <a href="{{ url_for('main.index') }}#projects">Проекты</a>
+      {% if config.GITHUB_URL %}<a class="github-link" href="{{ config.GITHUB_URL }}" aria-label="GitHub студии">{{ icon('github') }}</a>{% endif %}
+    </nav>
+  </div>
+</header>
+<main id="main">{% block content %}{% endblock %}</main>
+<footer class="container site-footer"><span>© {{ year }} {{ config.STUDIO_NAME }}</span><a class="footer-contact" href="https://t.me/galchan_skiy">Telegram: @galchan_skiy</a><span class="footer-motto">{{ icon('spark') }} Код · ИИ · Практика</span></footer>
+</body>
+</html>

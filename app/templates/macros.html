@@ -1,0 +1,37 @@
+{% macro icon(name, class='') -%}
+<svg class="icon {{ class }}" viewBox="{{ '0 0 96 96' if name == 'guitar' else '0 0 24 24' }}" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+{% if name == 'book' %}<path d="M12 6C9 3 5 3 2 4v15c4-1 7 0 10 2 3-2 6-3 10-2V4c-3-1-7-1-10 2Zm0 0v15"/>
+{% elif name == 'guitar' %}
+<g transform="rotate(28 48 48)">
+  <!-- Three tuning machines on each side of a shaped headstock. -->
+  <g stroke-width="2.2">
+    <path d="M34 24h-7m7 13h-7m7 13h-7M62 24h7m-7 13h7m-7 13h7"/>
+    <rect x="20" y="20" width="7" height="8" rx="2.5"/>
+    <rect x="20" y="33" width="7" height="8" rx="2.5"/>
+    <rect x="20" y="46" width="7" height="8" rx="2.5"/>
+    <rect x="69" y="20" width="7" height="8" rx="2.5"/>
+    <rect x="69" y="33" width="7" height="8" rx="2.5"/>
+    <rect x="69" y="46" width="7" height="8" rx="2.5"/>
+  </g>
+  <path d="M39 87V69c0-5-2-8-5-12V16c0-4 3-7 7-6l7 2 7-2c4-1 7 2 7 6v41c-3 4-5 7-5 12v18" stroke-width="3"/>
+  <g stroke-width="1.5">
+    <circle cx="40" cy="24" r="2.6"/><circle cx="40" cy="37" r="2.6"/><circle cx="40" cy="50" r="2.6"/>
+    <circle cx="56" cy="24" r="2.6"/><circle cx="56" cy="37" r="2.6"/><circle cx="56" cy="50" r="2.6"/>
+  </g>
+  <g stroke-width=".85" opacity=".85">
+    <path d="M42 87V67l-2-17M44.4 87V67L40 37M46.8 87V67L40 24M49.2 87V67L56 24M51.6 87V67L56 37M54 87V67l2-17"/>
+  </g>
+  <path d="M39 66h18m-18 3h18" stroke-width="1.8"/>
+  <path d="M46 55v4h4v-4" stroke-width="1.2"/>
+</g>
+{% elif name == 'github' %}<path fill="currentColor" stroke="none" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.86c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.64-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.83c.85 0 1.71.12 2.51.34 1.91-1.3 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/>
+{% elif name == 'external' %}<path d="M14 3h7v7m0-7L10 14M10 5H4v16h16v-6"/>
+{% elif name == 'code' %}<path d="m7 6-6 6 6 6m10-12 6 6-6 6m-4-15-2 18"/>
+{% elif name == 'spark' %}<path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z"/><path d="m20 2 1 2 2 1-2 1-1 2-1-2-2-1 2-1Z"/>
+{% elif name == 'layers' %}<path d="m12 2 10 5-10 5L2 7Zm-10 11 10 5 10-5M2 18l10 5 10-5"/>
+{% elif name == 'download' %}<path d="M12 3v13m-5-5 5 5 5-5M5 21h14"/>
+{% elif name == 'arrow' %}<path d="M4 12h16m-6-6 6 6-6 6"/>
+{% elif name == 'back' %}<path d="M20 12H4m6-6-6 6 6 6"/>
+{% elif name == 'check' %}<path d="m5 12 4 4L19 6"/>
+{% endif %}</svg>
+{%- endmacro %}

@@ -1,0 +1,16 @@
+# Replace paths and user before installation. Pick a free port.
+[Unit]
+Description=Galchanskiy Studio website
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/srv/galchanskiy-studio
+ExecStart=/srv/galchanskiy-studio/.venv/bin/gunicorn --workers 2 --bind 127.0.0.1:8010 --access-logfile - --error-logfile - wsgi:app
+Restart=on-failure
+PrivateTmp=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

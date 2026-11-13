@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Guitar Tuner — тюнер для Android | {{ config.STUDIO_NAME }}{% endblock %}
+{% block description %}Простой и точный офлайн-тюнер для гитары и баса. Без рекламы. Скачать APK Guitar Tuner для Android {{ config.GUITAR_TUNER_MIN_ANDROID }} и новее.{% endblock %}
+{% block content %}
+<div class="container product-page">
+  <a class="back-link" href="{{ url_for('main.index') }}">{{ icon('back') }} На главную</a>
+  <section class="product-hero" aria-labelledby="product-title">
+    <div class="product-copy"><div class="project-icon tuner-icon">{{ icon('guitar') }}</div><p class="eyebrow">ANDROID · OFFLINE</p><h1 id="product-title">Guitar Tuner</h1><p class="product-subtitle">Простой и точный тюнер для Android</p><p class="product-description">Настройте гитару или бас с помощью микрофона телефона. Автоматическое определение струны и стрелочный индикатор помогут найти точное звучание.</p>
+    {% if apk_size is not none %}<a class="button button-solid" href="{{ url_for('main.download_apk') }}">{{ icon('download') }} Скачать APK</a><p class="download-caption">{{ config.GUITAR_TUNER_VERSION }} · {{ '%.1f' | format(apk_size / 1048576) }} МиБ · Android {{ config.GUITAR_TUNER_MIN_ANDROID }}+</p>{% else %}<span class="button button-disabled" aria-disabled="true">Скоро будет доступно</span>{% endif %}
+    </div>
+    <div class="phone-frame{% if config.GUITAR_TUNER_SCREENSHOTS %} phone-frame-with-screenshot{% endif %}">
+      {% if config.GUITAR_TUNER_SCREENSHOTS %}<img src="{{ url_for('static', filename=config.GUITAR_TUNER_SCREENSHOTS[0]) }}" alt="Guitar Tuner: настройка струны E4, стрелочный индикатор и выбор струн" width="1079" height="2161">{% else %}<div class="screenshot-placeholder">{{ icon('guitar') }}<span>Guitar Tuner</span><p>Скриншоты приложения<br>скоро появятся</p></div>{% endif %}
+    </div>
+  </section>
+  <section class="product-section" aria-labelledby="features-title"><div class="section-heading"><h2 id="features-title"><span>/</span> Возможности</h2><div class="heading-line"></div></div><ul class="feature-grid">{% for feature in features %}<li>{{ icon('check') }} {{ feature }}</li>{% endfor %}</ul></section>
+  {% if config.GUITAR_TUNER_SCREENSHOTS | length > 1 %}<section class="product-section" aria-labelledby="screenshots-title"><h2 id="screenshots-title">Скриншоты</h2><div class="screenshots">{% for screenshot in config.GUITAR_TUNER_SCREENSHOTS[1:] %}<img src="{{ url_for('static', filename=screenshot) }}" alt="Скриншот Guitar Tuner {{ loop.index + 1 }}" loading="lazy" width="320" height="640">{% endfor %}</div></section>{% endif %}
+  <section class="release-info" aria-labelledby="release-title"><h2 id="release-title">О приложении</h2><dl><div><dt>Версия</dt><dd>{{ config.GUITAR_TUNER_VERSION }}</dd></div><div><dt>Android</dt><dd>{{ config.GUITAR_TUNER_MIN_ANDROID }} и новее</dd></div>{% if apk_size is not none %}<div><dt>Размер APK</dt><dd>{{ '%.1f' | format(apk_size / 1048576) }} МиБ</dd></div>{% endif %}{% if config.GUITAR_TUNER_RELEASE_DATE %}<div><dt>Дата выпуска</dt><dd>{{ config.GUITAR_TUNER_RELEASE_DATE }}</dd></div>{% endif %}</dl></section>
+</div>
+{% endblock %}

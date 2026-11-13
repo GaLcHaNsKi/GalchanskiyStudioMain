@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="home-background" aria-hidden="true"><div class="technical-grid"></div><div class="diagonal diagonal-one"></div><div class="diagonal diagonal-two"></div></div>
+<section class="container hero" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <h1 id="hero-title">Разработка<br>полезного <span>софта.</span></h1>
+    <p>Веб-сервисы, приложения и инструменты.<br class="desktop-break"> Используем ИИ на полную катушку.</p>
+    <ul class="tech-tags" aria-label="Наш подход"><li>{{ icon('code') }} Software</li><li>{{ icon('spark') }} AI-powered</li><li>{{ icon('layers') }} Engineering</li></ul>
+  </div>
+  <div class="code-art" aria-hidden="true">
+    <div class="editor-top"><div class="window-dots"><i></i><i></i><i></i></div>{{ icon('code') }}</div>
+    <div class="editor-body">
+      <div><b></b><i class="line green w40"></i></div>
+      <div><b></b><i class="line cyan w22"></i><i class="line purple w58"></i></div>
+      <div><b></b><i class="line dim w12"></i><i class="line green w26"></i><i class="line purple w22"></i></div>
+      <div><b></b><i class="line green w32"></i></div>
+      <div><b></b><i class="line dim w12"></i><i class="line purple w70"></i></div>
+      <div><b></b><i class="line dim w12"></i><i class="line gold w26"></i></div>
+    </div>
+  </div>
+</section>
+<section id="projects" class="container projects" aria-labelledby="projects-title">
+  <div class="section-heading"><h2 id="projects-title"><span>/</span> Проекты</h2><div class="heading-line"></div><span class="project-count">{{ '%02d' | format(projects | length) }}</span></div>
+  <div class="project-grid">
+    {% for project in projects %}
+    <article class="project-card {{ project.theme }}">
+      <div class="project-icon">{{ icon(project.icon) }}</div>
+      {% if project.theme == 'tuner' %}
+      <img class="project-watermark guitar-watermark" src="{{ url_for('static', filename='images/guitar.svg') }}" width="160" height="300" alt="" aria-hidden="true">
+      {% else %}{{ icon(project.icon, 'project-watermark') }}{% endif %}
+      <h3>{{ project.name }}</h3><p>{{ project.description }}</p>
+      {% if project.theme == 'library' %}
+        {% if config.LIBRARY_URL %}<a class="button" href="{{ config.LIBRARY_URL }}">{{ icon('external') }} Открыть сайт</a>{% else %}<span class="button button-disabled" aria-disabled="true">Ссылка скоро появится</span>{% endif %}
+      {% else %}<a class="button" href="{{ url_for('main.guitar_tuner') }}">Подробнее {{ icon('arrow') }}</a>{% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
