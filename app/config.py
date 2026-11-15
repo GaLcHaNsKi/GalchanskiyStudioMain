@@ -16,7 +16,7 @@ def public_url(name, default=''):
 
 
 def settings():
-    apk = Path(os.environ.get('GUITAR_TUNER_APK_PATH', 'releases/guitar-tuner.apk')).expanduser()
+    apk = Path(os.environ.get('GUITAR_TUNER_APK_PATH', 'guitar-tuner.apk')).expanduser()
     return {
         'STUDIO_NAME': os.environ.get('STUDIO_NAME', 'Galchanskiy Studio'),
         'LIBRARY_URL': public_url('LIBRARY_URL', 'https://library.galchanskiy-studio.com'),
