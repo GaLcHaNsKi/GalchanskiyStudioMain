@@ -23,7 +23,7 @@ flask --app wsgi run --host 127.0.0.1 --port 5000
 - `app/templates/` — шаблоны страниц; `app/static/css/style.css` — оформление.
 - `STUDIO_NAME`, `LIBRARY_URL`, `GITHUB_URL` — название и ссылки.
 - `GUITAR_TUNER_APK_PATH` — абсолютный путь либо путь от корня проекта. По умолчанию `guitar-tuner.apk` в корне проекта.
-- `GUITAR_TUNER_VERSION=0.1.0`, `GUITAR_TUNER_MIN_ANDROID=8.0` — данные из AndroidManifest.xml предоставленного APK (minSdk 26).
+- `GUITAR_TUNER_VERSION=0.2.0`, `GUITAR_TUNER_MIN_ANDROID=8.0` — данные из AndroidManifest.xml предоставленного APK (minSdk 26).
 - `GUITAR_TUNER_RELEASE_DATE` — необязательная дата выпуска, скрыта, пока не задана. Дата файла не используется как дата выпуска.
 - `GUITAR_TUNER_SCREENSHOTS` в `app/config.py` — список путей относительно `app/static/`, например `('images/tuner-main.webp', 'images/tuner-bass.webp')`. Первый показывается в рамке телефона, остальные — в галерее. Используйте реальные скриншоты. Добавлен предоставленный скриншот `images/tuner-screenshot.jpg`. При пустом списке отображается временная заглушка.
 

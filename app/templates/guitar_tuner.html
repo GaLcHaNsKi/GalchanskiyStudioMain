@@ -13,6 +13,15 @@
     </div>
   </section>
   <section class="product-section" aria-labelledby="features-title"><div class="section-heading"><h2 id="features-title"><span>/</span> Возможности</h2><div class="heading-line"></div></div><ul class="feature-grid">{% for feature in features %}<li>{{ icon('check') }} {{ feature }}</li>{% endfor %}</ul></section>
+  <section class="product-section" aria-labelledby="whats-new-title">
+    <div class="section-heading"><h2 id="whats-new-title"><span>/</span> Что нового в 0.2.0</h2><div class="heading-line"></div></div>
+    <ul class="feature-grid">
+      <li>{{ icon('check') }} Обычный режим: более широкий диапазон распознавания, сглаженная стрелка и шаг показаний 10 центов.</li>
+      <li>{{ icon('check') }} Точный режим сохраняет прежние настройки и показания в центах.</li>
+      <li>{{ icon('check') }} Стрелка и шкала плавно меняют цвет от зелёного через жёлтый и красный к бордовому.</li>
+      <li>{{ icon('check') }} Оба режима работают для гитары и баса.</li>
+    </ul>
+  </section>
   {% if config.GUITAR_TUNER_SCREENSHOTS | length > 1 %}<section class="product-section" aria-labelledby="screenshots-title"><h2 id="screenshots-title">Скриншоты</h2><div class="screenshots">{% for screenshot in config.GUITAR_TUNER_SCREENSHOTS[1:] %}<img src="{{ url_for('static', filename=screenshot) }}" alt="Скриншот Guitar Tuner {{ loop.index + 1 }}" loading="lazy" width="320" height="640">{% endfor %}</div></section>{% endif %}
   <section class="release-info" aria-labelledby="release-title"><h2 id="release-title">О приложении</h2><dl><div><dt>Версия</dt><dd>{{ config.GUITAR_TUNER_VERSION }}</dd></div><div><dt>Android</dt><dd>{{ config.GUITAR_TUNER_MIN_ANDROID }} и новее</dd></div>{% if apk_size is not none %}<div><dt>Размер APK</dt><dd>{{ '%.1f' | format(apk_size / 1048576) }} МиБ</dd></div>{% endif %}{% if config.GUITAR_TUNER_RELEASE_DATE %}<div><dt>Дата выпуска</dt><dd>{{ config.GUITAR_TUNER_RELEASE_DATE }}</dd></div>{% endif %}</dl></section>
 </div>

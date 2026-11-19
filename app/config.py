@@ -22,7 +22,7 @@ def settings():
         'LIBRARY_URL': public_url('LIBRARY_URL', 'https://library.galchanskiy-studio.com'),
         'GITHUB_URL': public_url('GITHUB_URL', 'https://github.com/GaLcHaNsKi'),
         'GUITAR_TUNER_APK_PATH': apk if apk.is_absolute() else BASE_DIR / apk,
-        'GUITAR_TUNER_VERSION': os.environ.get('GUITAR_TUNER_VERSION', '0.1.0'),
+        'GUITAR_TUNER_VERSION': os.environ.get('GUITAR_TUNER_VERSION', '0.2.0'),
         'GUITAR_TUNER_MIN_ANDROID': os.environ.get('GUITAR_TUNER_MIN_ANDROID', '8.0'),
         'GUITAR_TUNER_RELEASE_DATE': os.environ.get('GUITAR_TUNER_RELEASE_DATE', ''),
         # Paths relative to app/static; add real screenshots here or in an app config override.
